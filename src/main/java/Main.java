@@ -32,11 +32,5 @@ public class Main {
         fileWriter.close();
 
         GraphHelper.graphColumns(arrayList, 0, "000000", "-");
-        //Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
-        //for (int i = 0; i < 25; i++) {
-        //    plt = GraphHelper.graph(plt, arrayList, i, "000000", "-");
-        //}
-        //plt.legend();
-        //plt.show();
     }
 }
