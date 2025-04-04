@@ -30,7 +30,7 @@ public class TableHelper {
                             !cell.getRichStringCellValue().getString().contains("ALIMENTACION") &&
                             !cell.getRichStringCellValue().getString().contains("TOTAL HUEVOS"))
                     {
-                        data.get(new Integer(i)).add(cell.getRichStringCellValue().getString());
+                        data.get(i).add(cell.getRichStringCellValue().getString());
                         boolean flag = false;
                         if(cell.getRichStringCellValue().getString().equals("QUESO")){
                             flag = true;
@@ -48,6 +48,19 @@ public class TableHelper {
                     }
                 }
             }
+        }
+        return data;
+    }
+    public static Map<Integer, List<String>> calculateTotal(ArrayList<Map<Integer, List<String>>> arrayList){
+        Map<Integer, List<String>> data = new HashMap<>();
+        for (int i = 0; i < 7; ++i) {
+            data.put(i, new ArrayList<String>());
+            double total = 0;
+            for (int j = 0; j < 24; ++j) {
+                total += Double.valueOf(arrayList.get(j).get(i).get(1));
+            }
+            data.get(i).add(arrayList.get(0).get(i).get(0));
+            data.get(i).add(String.valueOf(total));
         }
         return data;
     }

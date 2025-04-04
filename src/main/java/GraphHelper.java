@@ -34,30 +34,18 @@ public class GraphHelper {
         plt.xlabel("Product type");
         plt.ylabel("Mass, tonnes");
         plt.title("Protein sources in tonnes by type");
-        plt.ylim(0, 5000000);
+        double max = 1000000;
+        for (int i = 0; i < y.size(); ++i) {
+            while(y.get(i) > max){
+                max += 500000;
+            }
+        }
+        plt.ylim(0, max);
         plt.legend();
         plt.show();
     }
 
-    public static void graph(ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
-        ArrayList<Integer> x = new ArrayList<>();
-        for (int i = 1; i < 8; i += 1) {
-            x.add(i);
-        }
-        ArrayList<Double> y = new ArrayList<>();
-        for (int i = 0; i < 7; ++i) {
-            y.add(Double.valueOf(arrayList.get(index).get(i).get(1)));
-        }
-
-        Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
-        plt.plot().color(color).add(x, y).label("Protein sources " + (1999 + index)).linestyle(style);
-        plt.xlabel("Product type");
-        plt.ylabel("Mass, tonnes");
-        plt.title("Protein sources in tonnes by type");
-        plt.legend();
-        plt.show();
-    }
-    public static Plot graphColumns(Plot plt, ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
+    public static void graphColumns(ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style, String caption) throws PythonExecutionException, IOException {
         ArrayList<Integer> x = new ArrayList<>();
         for (int i = 5; i < 80; i += 5) {
             x.add(i);
@@ -77,12 +65,73 @@ public class GraphHelper {
             y.add(0.0);
         }
         System.out.println(x.size() + "\n" + y.size());
+        Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
+        plt.plot().color(color).add(x, y).label(caption).linestyle(style);
+        plt.xlabel("Product type");
+        plt.ylabel("Mass, tonnes");
+        plt.title("Protein sources in tonnes by type");
+        double max = 1000000;
+        for (int i = 0; i < y.size(); ++i) {
+            while(y.get(i) > max){
+                max += 500000;
+            }
+        }
+        plt.ylim(0, max);
+        plt.legend();
+        plt.show();
+    }
+
+    public static Plot graphColumns(Plot plt, ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
+        ArrayList<Integer> x = new ArrayList<>();
+        for (int i = 5; i < 80; i += 5) {
+            x.add(i);
+            if (i % 2 != 0 && i != 5 && i != 75) {
+                x.add(i);
+            }
+            if (i % 2 != 0) {
+                x.add(i);
+            }
+        }
+        ArrayList<Double> y = new ArrayList<>();
+        y.add(0.0);
+        for (int i = 0; i < 7; ++i) {
+            y.add(Double.valueOf(arrayList.get(index).get(i).get(1)));
+            y.add(Double.valueOf(arrayList.get(index).get(i).get(1)));
+            y.add(Double.valueOf(arrayList.get(index).get(i).get(1)));
+            y.add(0.0);
+        }
+        //System.out.println(x.size() + "\n" + y.size());
         plt.plot().color(color).add(x, y).label("Protein sources " + (1999 + index)).linestyle(style);
         plt.xlabel("Product type");
         plt.ylabel("Mass, tonnes");
         plt.title("Protein sources in tonnes by type");
-        plt.ylim(0, 5000000);
+        double max = 1000000;
+        for (int i = 0; i < y.size(); ++i) {
+            while(y.get(i) > max){
+                max += 500000;
+            }
+        }
+        plt.ylim(0, max);
         return plt;
+    }
+
+    public static void graph(ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
+        ArrayList<Integer> x = new ArrayList<>();
+        for (int i = 1; i < 8; i += 1) {
+            x.add(i);
+        }
+        ArrayList<Double> y = new ArrayList<>();
+        for (int i = 0; i < 7; ++i) {
+            y.add(Double.valueOf(arrayList.get(index).get(i).get(1)));
+        }
+
+        Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
+        plt.plot().color(color).add(x, y).label("Protein sources " + (1999 + index)).linestyle(style);
+        plt.xlabel("Product type");
+        plt.ylabel("Mass, tonnes");
+        plt.title("Protein sources in tonnes by type");
+        plt.legend();
+        plt.show();
     }
 
     public static Plot graph(Plot plt, ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
