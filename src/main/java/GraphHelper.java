@@ -149,4 +149,23 @@ public class GraphHelper {
         plt.title("Protein sources in tonnes by type");
         return plt;
     }
+
+    public static void graphProduct(ArrayList<Map<Integer, List<String>>> arrayList, int index, String color, String style) throws PythonExecutionException, IOException {
+        ArrayList<Integer> x = new ArrayList<>();
+        for (int i = 1999; i < 2024; ++i) {
+            x.add(i);
+        }
+        ArrayList<Double> y = new ArrayList<>();
+        for (int i = 0; i < 25; ++i) {
+            y.add(Double.valueOf(arrayList.get(i).get(index).get(1)));
+        }
+
+        Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
+        plt.plot().color(color).add(x, y).label(arrayList.get(0).get(index).get(0)).linestyle(style);
+        plt.xlabel("Year");
+        plt.ylabel("Mass, tonnes");
+        plt.title("Protein sources in tonnes by type");
+        plt.legend();
+        plt.show();
+    }
 }

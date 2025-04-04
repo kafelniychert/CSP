@@ -32,7 +32,8 @@ public class Main {
         fileWriter.close();
 
         arrayList.add(TableHelper.calculateTotal(arrayList));
-        GraphHelper.graphColumns(arrayList, 24, "000000", "-", "Total of each by type");
+        //GraphHelper.graphColumns(arrayList, 24, "000000", "-", "Total of each by type");
+        GraphHelper.graphProduct(arrayList, 2, "000000", "-.");
         //System.out.println(arrayList);
     }
 }
