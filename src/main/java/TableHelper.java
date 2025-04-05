@@ -1,21 +1,25 @@
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class TableHelper {
+
+    /**
+     * A method that extracts the needed data from the provided excel table
+     * @param filename The name of the needed excel table in the directory
+     * @return Returns a map list with the total mass of each protein - containing product consumed, in tonnes (In one year)
+     */
     public static Map<Integer, List<String>> getDataFromTable(String filename) throws IOException {
         String fileLocation = "C:\\Users\\user\\Desktop\\CSP\\tables\\"+filename+".xlsx";
         FileInputStream file = new FileInputStream(new File(fileLocation));
         Workbook workbook = new XSSFWorkbook(file);
         Sheet sheet = workbook.getSheetAt(2);
-
         Map<Integer, List<String>> data = new HashMap<>();
         int i = 0;
         for (Row row : sheet) {
@@ -51,6 +55,12 @@ public class TableHelper {
         }
         return data;
     }
+
+    /**
+     * A method that calculates the total mass consumed for each of the products throughout all the years of the dataset
+     * @param arrayList The main list with the data
+     * @return Returns a map list with 7 product type and total mass pairs
+     */
     public static Map<Integer, List<String>> calculateTotal(ArrayList<Map<Integer, List<String>>> arrayList){
         Map<Integer, List<String>> data = new HashMap<>();
         for (int i = 0; i < 7; ++i) {
