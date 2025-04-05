@@ -1,0 +1,1 @@
+A CSP focusing on the change in protein sources of the Spansih people from 1999 to 2023 based on a dataset from https://www.mapa.gob.es/es/alimentacion/temas/consumo-tendencias/panel-de-consumo-alimentario/series-anuales/
