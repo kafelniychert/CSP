@@ -58,8 +58,8 @@ public class TableHelper {
 
     /**
      * A method that calculates the total mass consumed for each of the products throughout all the years of the dataset
-     * @param arrayList The main list with the data
-     * @return Returns a map list with 7 product type and total mass pairs
+     * @param arrayList The main list with the data.
+     * @return Returns a map list with 7 product type and total mass pairs.
      */
     public static Map<Integer, List<String>> calculateTotal(ArrayList<Map<Integer, List<String>>> arrayList){
         Map<Integer, List<String>> data = new HashMap<>();

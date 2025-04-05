@@ -52,10 +52,10 @@ public class GraphHelper {
 
     /**
      * A method that adds a normal, line style graph onto a provided Plot object of the mass consumed for a specified product type throughout all the years of the data set
-     * @param plt The Plot object onto which the graph is added
-     * @param arrayList The list with data to be graphed
-     * @param index The needed product type
-     * @param color The desired color of the graph
+     * @param plt The Plot object onto which the graph is added.
+     * @param arrayList The list with data to be graphed.
+     * @param index The needed product type.
+     * @param color The desired color of the graph.
      * @param style the type of line (-, .-, etc)
      * @return Returns the provided Plot objects with the graph added
      */
