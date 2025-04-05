@@ -23,6 +23,6 @@ public class Main {
             GraphHelper.graphProduct(plt2, arrayList, i, "000000", "-");
             plt2.savefig("C:/Users/user/Desktop/CSP/graphs/" + arrayList.get(0).get(i).get(0) + ".png").dpi(200);
             plt2.executeSilently();
-        } //Saving the total column graph and the individual line graphs as .png in the needed directory
+        } // Saving the total column graph and the individual line graphs as .png in the needed directory
     }
 }
