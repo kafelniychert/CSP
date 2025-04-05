@@ -32,8 +32,15 @@ public class Main {
         fileWriter.close();
 
         arrayList.add(TableHelper.calculateTotal(arrayList));
-        //GraphHelper.graphColumns(arrayList, 24, "000000", "-", "Total of each by type");
-        GraphHelper.graphProduct(arrayList, 2, "000000", "-.");
-        //System.out.println(arrayList);
+        Plot plt = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
+        plt = GraphHelper.graphColumns(plt, arrayList, 25, "000000", "-", "Total of each by type");
+        plt.savefig("C:/Users/user/Desktop/CSP/graphs/total.png").dpi(200);
+        plt.executeSilently();
+        for (int i = 0; i < 7; ++i) {
+            Plot plt2 = Plot.create(PythonConfig.pythonBinPathConfig("C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"));
+            GraphHelper.graphProduct(plt2, arrayList, i, "000000", "-");
+            plt2.savefig("C:/Users/user/Desktop/CSP/graphs/" + arrayList.get(0).get(i).get(0) + ".png").dpi(200);
+            plt2.executeSilently();
+        }
     }
 }
