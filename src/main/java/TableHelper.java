@@ -33,7 +33,7 @@ public class TableHelper {
                             cell.getRichStringCellValue().getString().toLowerCase().contains("kgs")) &&
                             !cell.getRichStringCellValue().getString().contains("ALIMENTACION") &&
                             !cell.getRichStringCellValue().getString().contains("TOTAL HUEVOS"))
-                    {
+                    { //Due to slight differences in names of product types throughout the years, the if statement has to include different shared characteristics
                         data.get(i).add(cell.getRichStringCellValue().getString());
                         boolean flag = false;
                         if(cell.getRichStringCellValue().getString().equals("QUESO")){
